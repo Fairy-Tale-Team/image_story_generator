@@ -2,15 +2,13 @@
 ___
 
 # Image Story Generator
-___
 
-  
+&nbsp;
 
 A webapp created with FLASK API that utilizes computer vision and natural language processing to generate dramatic short stories using features from images.  
 
 *AI Apprenticeship Programme (AIAP®) Capstone Project- Aug 2020*
 
-&nbsp;
 
 ---
 
@@ -37,13 +35,13 @@ Landing page
 
 &nbsp;  
 
-Submit images
+Submit images  
 ![Submit Image](./documentation/submit_img.gif)
 
 
 &nbsp;  
 
-Generate attention plot and story
+Generate attention plot and story  
 ![Generate story](./documentation/generatestory.png)
 
 &nbsp;
