@@ -134,22 +134,26 @@ conda install --file requirements.txt
 ### Installing
 
 1. Clone this repo to your local machine  
->git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY 
->cd repo
-
+```
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY 
+cd repo
+```
 
 2. Go to the src folder, run downloadfile.py to download required files(size: __ GB)  
->cd src
->python -m downloadfile
-
+```
+cd src
+python -m downloadfile
+```
 
 3. Run web application locally  
-> flask run 
-
+```
+flask run 
+```
 4. Open URL of locally hosted web app on web browser  
-> http://127.0.0.1:5000/
-
-
+```
+http://127.0.0.1:5000/
+```
+---
 ## Authors
 
 * [**Chang Xuan Yao**](https://github.com/) - *Image to Caption*
@@ -160,10 +164,12 @@ conda install --file requirements.txt
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
+---
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
+---
 ## Acknowledgments
 
 Models adapted from: 
@@ -173,7 +179,8 @@ Models adapted from:
 Web Application built with [Flask](https://palletsprojects.com/p/flask/) framework
 Website designed with BootstrapMade  
 Icons made by Freepik from www.flaticon.com  
-  
+
+---  
 ## Useful Resources
 General  
 Transformers v2.11.0: https://huggingface.co/transformers/v2.11.0/examples.html  
