@@ -3,12 +3,12 @@ ___
 
 # Image Story Generator
 
-&nbsp;
 
 A webapp created with FLASK API that utilizes computer vision and natural language processing to generate dramatic short stories using features from images.  
 
 *AI Apprenticeship Programme (AIAP®) Capstone Project- Aug 2020*
 
+&nbsp;
 
 ---
 
