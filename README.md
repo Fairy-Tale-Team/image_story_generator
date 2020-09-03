@@ -4,13 +4,19 @@ ___
 # Image Story Generator
 ___
 
+  
+
 A webapp created with FLASK API that utilizes computer vision and natural language processing to generate dramatic short stories using features from images.  
 
-AI Apprenticeship Programme (AIAP®) Capstone Project- Aug 2020
+*AI Apprenticeship Programme (AIAP®) Capstone Project- Aug 2020*
+
+&nbsp;
 
 ---
 
 ## Table of Contents 
+
+  
 
 - [Site](#Site)
 - [Description](#Description)
@@ -20,6 +26,7 @@ AI Apprenticeship Programme (AIAP®) Capstone Project- Aug 2020
 - [Acknowledgements](#Acknowledgements)
 - [Useful Resources](#Useful-Resources)
 
+&nbsp;
 
 ---
 ## Site
@@ -28,19 +35,23 @@ Landing page
 
 ![Landing page](./documentation/landingpage.gif)
 
+&nbsp;  
 
-\
 Submit images
 ![Submit Image](./documentation/submit_img.gif)
 
 
+&nbsp;  
 
-\
 Generate attention plot and story
 ![Generate story](./documentation/generatestory.png)
 
+&nbsp;
+
 ---
 ## Description
+
+  
 
 ### Image to Caption
 
@@ -56,6 +67,8 @@ The user submitted images were pre-processed to Inception V3’s expected format
 
 Pre-processed images are passed through the convolutional layers of Inception V3. Features were extracted from the last convolutional layer giving us a vector of shape (8, 8, 2048).
 The vector is squashed that to a shape of (64, 2048) and passed through the CNN Encoder (which consists of a single Fully connected layer). The RNN (GRU with Bahdanau Attention) attends over the image to predict a sequence of words that describe the image. The attention plots show which pixels in the image is weighted higher for each word.
+
+&nbsp;  
 
 ### Caption to Story
 
@@ -99,18 +112,23 @@ of text. The maximum number of words for such paragraphs, in its aggregate, is s
 **Post-processing** 
 
 The last sentence of the paragraphs of text from the GPT-2 model is sometimes incomplete. In
-such cases, the incomplete sentence is removed to arrive at our final output: the Story.
+such cases, the incomplete sentence is removed to arrive at our final output: the Story.  
+
+&nbsp;  
 
 ### Deployment (Webapp)
 
 ![Webapp](./documentation/deployment.png)
 
-The web application was created using Flask, a micro web framework, which allows users to interface with the model through a webpage.  
+The web application was created using Flask, a micro web framework, which allows users to interface with the model through a webpage.   
+  
+&nbsp;
 
 ---
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development.
+  
 
 ### Prerequisites
 
@@ -136,7 +154,8 @@ To install the required packages, please use the following code:
 ```
 conda install --file requirements.txt
 ```
-
+  
+    
 ### Installing
 
 1. Clone this repo to your local machine  
@@ -159,25 +178,32 @@ flask run
 ```
 http://127.0.0.1:5000/
 ```
+
+&nbsp; 
+    
 ---
 ## Authors
 
-* [**Chang Xuan Yao**](https://github.com/) - *Image to Caption*
-* [**Guan Kiong Poh**](https://github.com/Unicorndy) - *Web Application*
-* [**Josephine Lin**](https://github.com/jlinjy) - *Caption to Story* 
-* [**Rebecca Lim**](https://github.com/rebeccalimxe) - *Image to Caption*
-* [**Shaun Tan**](https://github.com/ShaunBleu) - *Caption to Story*
+[**Chang Xuan Yao**](https://github.com/) - *Image to Caption*  
+[**Guan Kiong Poh**](https://github.com/Unicorndy) - *Web Application*  
+[**Josephine Lin**](https://github.com/jlinjy) - *Caption to Story*   
+[**Rebecca Lim**](https://github.com/rebeccalimxe) - *Image to Caption*  
+[**Shaun Tan**](https://github.com/ShaunBleu) - *Caption to Story*  
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+&nbsp;
 
 ---
 ## License
 
+
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+  
+&nbsp;
 
 ---
 ## Acknowledgments
 
+  
 Models adapted from: 
 * https://www.tensorflow.org/tutorials/text/image_captioning
 * https://huggingface.co/gpt2
@@ -185,6 +211,8 @@ Models adapted from:
 Web Application built with [Flask](https://palletsprojects.com/p/flask/) framework
 Website designed with BootstrapMade  
 Icons made by Freepik from www.flaticon.com  
+  
+&nbsp;
 
 ---  
 ## Useful Resources
