@@ -28,10 +28,14 @@ Landing page
 
 ![Landing page](./documentation/landingpage.gif)
 
+
+\
 Submit images
 ![Submit Image](./documentation/submit_img.gif)
 
 
+
+\
 Generate attention plot and story
 ![Generate story](./documentation/generatestory.png)
 
@@ -112,7 +116,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 Please install and update the following packages:
 
-numpy  
+>numpy  
 pandas  
 tensorflow==2.3.0  
 matplotlib==3.2.2  
@@ -195,8 +199,3 @@ https://www.youtube.com/watch?v=lQnLwUfwgyA
 https://www.youtube.com/watch?v=8psgEDhT1MM  
 https://www.youtube.com/watch?v=_x9AwxfjxvE  
 
-
-
-```python
-
-```
