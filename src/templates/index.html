@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Your Picture Your Story</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <!-- Favicons -->
+    <!-- <link href="static/assets/img/favicon.png" rel="icon"> -->
+    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/favicon.ico') }}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Dropzone -->
+    <link rel="stylesheet" href="static/assets/vendor/dropzone/dropzone.css">
+
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- =======================================================
+  * Template Name: Bell - v2.1.0
+  * Template URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Hero Section ======= -->
+    <section class="hero">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="hero-brand" href="/" title="Home"><img alt="Bell Logo" src="static/assets/img/logo.png"></a>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <h1>
+                    A picture is worth a thousand words
+                </h1>
+
+                <p class="tagline">
+                    Let your pictures 📸 tell the story.
+                </p>
+                <a class="btn btn-full scrollto" href="#story">Get Started Now</a>
+            </div>
+        </div>
+
+    </section>
+    <!-- End Hero -->
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="container">
+
+            <div id="logo" class="pull-left">
+                <a href="/"><img src="static/assets/img/logo.png" alt=""></a>
+                <!-- Uncomment below if you prefer to use a text image -->
+                <!--<h1><a href="#hero">Bell</a></h1>-->
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="#story">Tell a Story</a></li>
+                    <!-- <li><a href="#features">Features</a></li> -->
+                    <li><a href="#team">Team</a></li>
+                </ul>
+            </nav>
+            <!-- #nav-menu-container -->
+
+            <nav class="nav social-nav pull-right d-none d-lg-inline">
+                <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+            </nav>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section class="about" id="story">
+
+            <div class="container text-center">
+                <h1>Turn photos into stories 📖✨</h1>
+                <p>* image format <span class='subtitle'><b>.png .jpg</b></span>, * minimum size: <span class='subtitle'><b>224 x 224 px</b></span>, * limited to: <span class='subtitle'><b>3 images</span></b>
+                    </span>
+                    <br />
+                    <br />
+
+                    <p>
+                        <form id="my-dropzone" action="{{ url_for('upload_files') }}" class="dropzone">
+                            <br />
+                            <button class="btn" id="clear-dropzone">Clear Photos</button>
+                        </form>
+                        <script src="static/assets/vendor/dropzone/dropzone.js"></script>
+
+
+                        <script language="javascript">
+                            // myDropzone is the configuration for the element that has an id attribute
+                            // with the value my-dropzone or myDropzone
+                            Dropzone.options.myDropzone = {
+                                init: function() {
+                                    // this.on("sending", function(file) {
+                                    //     alert('Sending the file' + file.name)
+                                    // });
+
+                                    // Using a closure.
+                                    var _this = this;
+
+                                    // Setup the observer for the button.
+                                    document.querySelector("button#clear-dropzone").addEventObserver("click", function() {
+                                        // Using "_this" here, because "this" doesn't point to the dropzone anymore
+                                        _this.removeAllFiles();
+                                        // If you want to cancel uploads as well, you
+                                        // could also call _this.removeAllFiles(true);
+                                    });
+                                }
+                            };
+                        </script>
+                    </p>
+
+                    <br>
+                    <button class="btn" type='button' id='retrieve'>Submit for Stories</button>
+                    <br>
+                    <br>
+                    <br>
+                    <h2 class="text-center" id='image_caption'></h2>
+                    <div hidden id='image_caption_box' class="pagination">
+                        <div class="select-box">
+                            <input type="radio" name="select-page" id="page1" checked>
+                            <input type="radio" name="select-page" id="page2">
+                            <input type="radio" name="select-page" id="page3">
+
+                            <div class="box-model">
+                                <ul class="boxmodel">
+                                    <!-- <div class="row justify-content-center"> -->
+                                    <span class="box1">
+                                        <li>
+                                            <img src="" id="plot_img" style="max-height: 95%; height: 400px; width: auto" />
+                                            <h5 class="card-title" id='caption'></h5>
+                                        </li>
+                                    </span>
+                                    <!--box1-->
+
+                                    <span class="box2">
+                                        <li>
+                                            <img src="" id="plot_img1" style="max-height: 95%; height: 400px; width: auto" />
+                                            <h5 class="card-title" id='caption1'></h5>
+                                        </li>
+                                    </span>
+                                    <!--box2-->
+
+                                    <span class="box3">
+                                        <li>
+                                            <img src="" id="plot_img2" style="max-height: 95%; height: 400px; width: auto" />
+                                            <h5 class="card-title" id='caption2'></h5>
+                                        </li>
+                                    </span>
+                                    <!--box3-->
+                                </ul>
+                                <div class="buttons">
+                                    <ul class="btn1">
+                                        <li name="page1"><label for="page1">1</label></li>
+                                        <li name="page2"><label for="page2">2</label></li>
+                                        <li name="page3"><label for="page3">3</label></li>
+                                    </ul>
+                                </div>
+                                <!--buttons-->
+
+                                <!-- </div> -->
+                            </div>
+                            <!--box-model-->
+                        </div>
+                        <!--select-box-->
+                    </div>
+
+
+                    <br>
+                    <div hidden id='story_block'>
+                        <h2 class="text-center" hidden id='story_section'></h2>
+                        <br>
+                        <div class="row justify-content-center">
+                            <div class="col-sm-4 col-xs-6">
+                                <div class="card bg-light text-dark card-block">
+                                    <img class="card-img-top" src="" id="myimg" style="max-width: 99%; height: auto; width: 600px" />
+                                    <div class="card-body">
+                                        <h5 class="card-title" id='wordtitle'></h5>
+                                        <p class="card-text" style="text-align:justify;">
+                                            <span style="font-size:15px;" id='wordResult'>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-xs-6">
+                                <div class="card bg-light text-dark card-block">
+                                <img class="card-img-top" src="" id="myimg1" style="max-width: 99%; height: auto; width: 600px" />
+                                <div class="card-body">
+                                    <h5 class="card-title" id='wordtitle1'></h5>
+                                    <p class="card-text" style="text-align:justify;">
+                                    <span style="font-size:15px;" id='wordResult1'>
+                                    </p>
+                                </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-xs-6">
+                                <div class="card bg-light text-dark card-block">
+                                    <img class="card-img-top" src="" id="myimg2" style="max-width: 99%; height: auto; width: 600px" />
+                                    <div class="card-body">
+                                        <h5 class="card-title" id='wordtitle2'></h5>
+                                        <p class="card-text" style="text-align:justify;">
+                                        <span style="font-size:15px;" id='wordResult2'>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div hidden id="spinner"><span style="background-color: #fff; box-shadow: -7px 0 0 10px #fff, 7px 0 0 10px #fff;">Computing Image Caption &nbsp; </span></div>
+                                    <div hidden id="spinner1"><span style="background-color: #fff; box-shadow: -7px 0 0 10px #fff, 7px 0 0 10px #fff;">Generating Stories &nbsp; </span></div>
+
+                                    <script>
+                                        spinner = document.getElementById("spinner");
+                                        image_caption_box = document.getElementById("image_caption_box");
+                                        story_block = document.getElementById("story_block");
+
+                                        var checkedAlready = false;
+                                        var checkedAlready2 = false;
+
+                                        // Submit button change
+                                        $('button.btn').click(function() {
+                                            if (!checkedAlready) {
+                                                $("#retrieve").html('Try again');
+                                                checkedAlready = true;
+                                            } else {
+                                                location.href = "/";
+                                            }
+                                        });
+
+                                        // Execute image caption first and follow by gpt2 generate stories
+                                        $(document).ready(function() {
+                                            $('#retrieve').click(function() {
+                                                if (!checkedAlready2) {
+                                                    spinner.removeAttribute("hidden");
+                                                    $.ajax({
+                                                        url: "{{ url_for ('image_caption') }}",
+                                                        type: "GET",
+                                                        success: function(response) {
+
+                                                            $("#image_caption").html('Image Captions with Attention Plot');
+                                                            image_caption_box.removeAttribute("hidden");
+                                                            if (response.image_names[0]) {
+                                                                $("#plot_img").attr('src', '/static/plot/' + response.plot_image_name[0]);
+                                                                $("#caption").html('Caption: ' + response.caption_image_list[0]);
+                                                            }
+                                                            if (response.image_names[1]) {
+                                                                $("#plot_img1").attr('src', '/static/plot/' + response.plot_image_name[1]);
+                                                                $("#caption1").html('Caption: ' + response.caption_image_list[1]);
+                                                            }
+                                                            if (response.image_names[2]) {
+                                                                $("#plot_img2").attr('src', '/static/plot/' + response.plot_image_name[2]);
+                                                                $("#caption2").html('Caption: ' + response.caption_image_list[2]);
+                                                            }
+                                                            spinner.setAttribute("hidden", "");
+
+                                                            // GPT2 display
+                                                            spinner1.removeAttribute("hidden");
+                                                            $.ajax({
+                                                                url: "{{ url_for ('display_image') }}",
+                                                                type: "GET",
+                                                                success: function(response) {
+                                                                    $("#story_section").html('Stories generated from caption');
+                                                                    story_block.removeAttribute("hidden");
+                                                                    if (response.image_names[0]) {
+                                                                        $("#myimg").attr('src', '/static/uploads/' + response.image_names[0]);
+                                                                        $("#wordtitle").html(response.caption_list[0]);
+                                                                        $("#wordResult").html(response.text_list[0]);
+                                                                    }
+                                                                    if (response.image_names[1]) {
+                                                                        $("#myimg1").attr('src', '/static/uploads/' + response.image_names[1]);
+                                                                        $("#wordtitle1").html(response.caption_list[1]);
+                                                                        $("#wordResult1").html(response.text_list[1]);
+                                                                    }
+                                                                    if (response.image_names[2]) {
+                                                                        $("#myimg2").attr('src', '/static/uploads/' + response.image_names[2]);
+                                                                        $("#wordtitle2").html(response.caption_list[2]);
+                                                                        $("#wordResult2").html(response.text_list[2]);
+                                                                    }
+                                                                    spinner1.setAttribute("hidden", "");
+                                                                },
+                                                                error: function(xhr) {
+                                                                    //Do Something to handle error
+                                                                }
+                                                            });
+                                                            checkedAlready2 = true;
+                                                        },
+                                                        error: function(xhr) {
+                                                            //Do Something to handle error
+                                                        }
+                                                    });
+                                                }
+
+                                            });
+                                        });
+                                    </script>
+                                </div>
+
+        </section>
+        <!-- End About Section -->
+
+        <!-- ======= Welcome Section ======= -->
+        <section class="welcome text-center">
+            <h1>We all love a good story.</h1>
+            <h4>
+                Sprinkling the magic dust of narratives with AI and imagination
+            </h4>
+            <img alt="Bell - A perfect theme" class="gadgets-img hidden-md-down" src="static/assets/img/books.png">
+            <div id="image-box">
+                <img id="image-display" />
+                <!-- <div id="pred-result" class="hidden" style="text-align:center"></div> -->
+                <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+          <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
+            </div>
+        </section>
+        <!-- End Welcome Section -->
+
+        <!-- ======= Team Section ======= -->
+        <section class="team" id="team">
+            <div class="container">
+                <h2 class="text-center">
+                    Meet our Team
+                </h2>
+                <p>
+                    * These are GPT-2 generated profile descriptions
+                </p>
+
+                <div class="row">
+                    <div class="col-md-5ths col-xs-6 ">
+                        <div class="card card-block">
+                            <a href="#"><img alt="" class="team-img" src="static/assets/img/team-1.jpg">
+                                <div class="card-title-wrap">
+                                    <span class="card-title">Chang Xuan</span> <span class="card-text">CV Engineer</span>
+                                    <span class="card-title">
+                    <hr></span> <span class="card-text">Chang Xuan is a
+                    rare, rare, and valuable chinese rare dragon with a similar name to Chang Xuan.</span>
+                                </div>
+
+                                <div class="team-over">
+                                    <h4 class="hidden-md-down">
+                                        Bonjour
+                                    </h4>
+
+                                </div>
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-5ths col-xs-6">
+                        <div class="card card-block">
+                            <a href="#"><img alt="" class="team-img" src="static/assets/img/team-2.jpg">
+                                <div class="card-title-wrap">
+                                    <span class="card-title">Guan Kiong</span> <span class="card-text">UI/UX Engineer</span>
+                                    <span class="card-title">
+                    <hr></span> <span class="card-text">Guan Kiong is
+                    the ultimate and very strong chinese noodle soup, with a rich flavor,
+                    and it can be cooked in the same manner as regular china rice.</span>
+                                </div>
+                                <div class="team-over">
+                                    <h4 class="hidden-md-down">
+                                        Hola
+                                    </h4>
+
+                                </div>
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-5ths col-xs-6">
+                        <div class="card card-block">
+                            <a href="#"><img alt="" class="team-img" src="static/assets/img/team-3.jpg">
+                                <div class="card-title-wrap">
+                                    <span class="card-title">Josephine</span> <span class="card-text">NLP Engineer</span>
+                                    <span class="card-title">
+                    <hr></span> <span class="card-text">Josephine Lin is
+                    the first female hero in comic books to be referenced by her own father's name.</span>
+                                </div>
+
+                                <div class="team-over">
+                                    <h4 class="hidden-md-down">
+                                        Nǐn hǎo
+                                    </h4>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5ths col-xs-6">
+                        <div class="card card-block">
+                            <a href="#"><img alt="" class="team-img" src="static/assets/img/team-4.jpg">
+                                <div class="card-title-wrap">
+                                    <span class="card-title">Rebecca</span> <span class="card-text">CV Engineer</span>
+                                    <span class="card-title">
+                    <hr></span>
+                                    <span class="card-text">Rebecca Lim is one of the founders and staff with the
+                    company that runs a small mobile app-launching site called RebeccaFusion
+                    and is behind a new social hub called Facebook.</span>
+                                </div>
+
+                                <div class="team-over">
+                                    <h4 class="hidden-md-down">
+                                        Guten Tag
+                                    </h4>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5ths col-xs-6">
+                        <div class="card card-block">
+                            <a href="#"><img alt="" class="team-img" src="static/assets/img/team-5.jpg">
+                                <div class="card-title-wrap">
+                                    <span class="card-title">Shaun</span> <span class="card-text">NLP Engineer</span>
+                                    <span class="card-title">
+                    <hr></span> <span class="card-text">Shaun Tan is
+                    getting a lot of attention lately. It has an overuse, overly-aggressive
+                    character design that is reminiscent of Spider-Man's superhero.</span>
+                                </div>
+
+                                <div class="team-over">
+                                    <h4 class="hidden-md-down">
+                                        Konnichiwa
+                                    </h4>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Team Section -->
+
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer class="site-footer">
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-xs-12 text-lg-left text-center">
+                        <p class="copyright-text">
+                            &copy; Copyright <strong>Bell</strong>. All Rights Reserved
+                        </p>
+                        <div class="credits">
+                            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bell
+            -->
+                            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                            <br> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-xs-12 text-lg-right text-center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="/">Try Again</a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="#story">Tell a Story</a>
+                            </li>
+
+                            <!-- <li class="list-inline-item">
+                                <a href="#features">Features</a>
+                            </li> -->
+
+                            <li class="list-inline-item">
+                                <a href="#team">Team</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
+
+    <!-- Vendor JS Files -->
+    <!-- <script src="static/assets/vendor/jquery/jquery.min.js"></script> -->
+    <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="static/assets/vendor/counterup/counterup.min.js"></script>
+    <script src="static/assets/vendor/tether/js/tether.min.js"></script>
+    <script src="static/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="static/assets/vendor/lockfixed/jquery.lockfixed.min.js"></script>
+    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="static/assets/vendor/superfish/superfish.min.js"></script>
+    <script src="static/assets/vendor/hoverIntent/hoverIntent.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>
