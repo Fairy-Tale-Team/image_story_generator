@@ -182,7 +182,7 @@ http://127.0.0.1:5000/
 ---
 ## Authors
 
-[**Chang Xuan Yao**](https://github.com/) - *Image to Caption*  
+[**Chang Xuan Yao**](https://github.com/ycx91) - *Image to Caption*  
 [**Guan Kiong Poh**](https://github.com/Unicorndy) - *Web Application*  
 [**Josephine Lin**](https://github.com/jlinjy) - *Caption to Story*   
 [**Rebecca Lim**](https://github.com/rebeccalimxe) - *Image to Caption*  
