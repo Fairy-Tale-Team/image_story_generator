@@ -35,14 +35,14 @@ Landing page
 
 &nbsp;  
 
-Submit images  
+User submits images  
 ![Submit Image](./documentation/submit_img.gif)
 
 
 &nbsp;  
 
-Generate attention plot and story  
-![Generate story](./documentation/generatestory.png)
+Webapp generates attention plot and story from image 
+![Generate story](./documentation/submit_gen.gif)
 
 &nbsp;
 
@@ -116,7 +116,7 @@ such cases, the incomplete sentence is removed to arrive at our final output: th
 
 ### Deployment (Webapp)
 
-![Webapp](./documentation/deployment.png)
+![Webapp](./documentation/deployment.gif)
 
 The web application was created using Flask, a micro web framework, which allows users to interface with the model through a webpage.   
   
@@ -222,3 +222,4 @@ Story and text generation
 - https://towardsdatascience.com/how-to-fine-tune-gpt-2-so-you-can-generate-long-form-creative-writing-7a5ae1314a61  
 - https://medium.com/@pierre_guillou/faster-than-training-from-scratch-fine-tuning-the-english-gpt-2-in-any-language-with-hugging-f2ec05c98787  
 
+&nbsp;
