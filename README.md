@@ -116,7 +116,7 @@ such cases, the incomplete sentence is removed to arrive at our final output: th
 
 ### Deployment (Webapp)
 
-![Webapp](./documentation/deployment.gif)
+![Webapp](./documentation/deployment.png)
 
 The web application was created using Flask, a micro web framework, which allows users to interface with the model through a webpage.   
   
